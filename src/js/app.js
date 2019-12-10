@@ -1,13 +1,11 @@
-export default function lifeColor(data) {
-    let color = '';
-    if (data.health > 50) {
-        color = 'healthy';
-    } else if (data.health > 15 && data.health <=50) {
-        color = 'wounded';
-    } else if (data.health <= 15) {
-        color = 'critical';
-    }
-    return color;
+export default function sortHeroes(data) {
+  return data.sort((a, b) => (b.health > a.health) - (a.health > b.health));
 }
 
-console.log(lifeColor({name: 'Маг', health: 10}));
+const heroes = [
+  { name: 'мечник', health: 10 },
+  { name: 'маг', health: 100 },
+  { name: 'лучник', health: 80 },
+];
+
+console.log(sortHeroes(heroes));

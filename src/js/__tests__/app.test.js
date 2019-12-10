@@ -1,16 +1,15 @@
-import lifeColor from '../app';
+import sortHeroes from '../app';
 
-test('should health', () => {
-    const result = lifeColor({name: 'Маг', health: 70});
-    expect(result).toBe('healthy');
-});
-
-test('should wounded', () => {
-    const result = lifeColor({name: 'Маг', health: 40});
-    expect(result).toBe('wounded');
-});
-
-test('should critical', () => {
-    const result = lifeColor({name: 'Маг', health: 10});
-    expect(result).toBe('critical');
+test('should sorted', () => {
+  const heroes = [
+    { name: 'мечник', health: 10 },
+    { name: 'маг', health: 100 },
+    { name: 'лучник', health: 80 },
+  ];
+  const result = sortHeroes(heroes);
+  expect(result).toEqual([
+    { name: 'маг', health: 100 },
+    { name: 'лучник', health: 80 },
+    { name: 'мечник', health: 10 },
+  ]);
 });
